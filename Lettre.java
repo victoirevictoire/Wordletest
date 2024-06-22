@@ -2,116 +2,7 @@
 import java.util.Scanner;
 public class Lettre {
  //declaration des attributs
- private String let; //une lettre comporte une lettre...
- private int rang;//...et un rang (véritable ou supposé)
- public static int compteur_verif=1 ; //permet de savoir quelle lettre doit être vérifiée
- //initialisé à 1 pour la première lettre de l'essai 1
-  //Introduction des couleurs
- public static final String ANSI_RESET = "\u001b[36;1m";
- public static final String ANSI_RED = "\u001b[31;1m";
- public static final String ANSI_BLACK = "\u001b[30;1m";
- public static final String ANSI_GREEN = "\u001b[32;1m";
- //couleurs
- private static String couleur1="" ;
- private static String couleur2="" ;
- private static String couleur3="";
- private static String couleur4="";
- private static String couleur5="";
- //constructeurs
-public Lettre(String let, int rang){
- this.setLet(let);
- this.setRang(rang);
-}
-public Lettre(char let, int rang) {
- this.setLet(Character.toString(let));;
-   this.setRang(rang);
- }
-//Fonction de construction du tableau
-public static Lettre[] tab(Lettre L1, Lettre L2, Lettre L3, Lettre L4, Lettre L5) {
- Lettre[] tab = new Lettre[5];
- tab[0]=L1;
- tab[1]=L2;
- tab[2]=L3;
- tab[3]=L4;
- tab[4]=L5;
- return tab;	
-}//c est un tableau qui contient le vrai mot
-//Fonction estPresent - appel quelconque (Lut, vrai tab)
-public boolean estPresent(Lettre L, Lettre[] vraitab) {
-   for (int i = 0; i < vraitab.length; i++) {
-     if (vraitab[i].let.equals(L.let)) {
-       return true; //true si la valeur de la lettre existe bien
-     }
-   }
-   return false ;
- }
-//Vérification - impression des lettres
-public void verif(Lettre L, Lettre[] tab) { //vraitab et Lut1 en argument ; appel avec la vraie lettre
-//Lettre 1
-if (compteur_verif==1) {
- if (!L.estPresent(L, tab)) { // On voit si la lettre est présente
-   couleur1="gris"; // gris si n'est pas présente
- }else {
-	  if (L.getLet().equals(tab[0].getLet())) { // On voit si la lettre est présente mais à la mauvaise place
-   couleur1="vert";
-	  } else {
-   couleur1="rouge"; // gris si même pas présente
- }
-}
-}
-//Lettre 2
-if (compteur_verif==2) {
-	  if (!L.estPresent(L, tab)) { // On voit si la lettre est presente 
-	    couleur2="gris"; // gris si n'est pas présente
-	  }else {
-		  if (L.getLet().equals(tab[1].getLet())) { // On voit si la lettre est présente mais à la mauvaise place
-	    couleur2="vert";
-		  } else {
-	    couleur2="rouge"; // gris si même pas présente
-	  }
-	}
-	}
-//Lettre 3
-if (compteur_verif==3) {
-	  if (!L.estPresent(L, tab)) { // On voit si la lettre est presente
-	    couleur3="gris"; // gris si n est pas présente
-	  }else {
-		  if (L.getLet().equals(tab[2].getLet())) { // On voit si la lettre est présente mais à la mauvaise place
-	    couleur3="vert";
-		  } else {
-	    couleur3="rouge"; // gris si même pas présente
-	  }
-	}
-	}
-//Lettre 4
-if (compteur_verif==4) {
-	  if (!L.estPresent(L, tab)) { // On voit si la lettre est presente
-	    couleur4="gris"; // gris si n'est pas presente 
-	  }else {
-		  if (L.getLet().equals(tab[3].getLet())) { // On voit si la lettre est présente mais a la mauvaise place
-	    couleur4="vert";
-		  } else {
-	    couleur4="rouge"; // gris si même pas presente
-	  }
-	}
-	}
-//Lettre 5
-if (compteur_verif==5) {
-	  if (!L.estPresent(L, tab)) { // On voit si la lettre est présente
-	    couleur5="gris"; // gris si n'est pas présente
-	  }else {
-		  if (L.getLet().equals(tab[4].getLet())) { // On voit si la lettre est présente mais à la mauvaise place
-	    couleur5="vert";
-		  } else {
-	    couleur5="rouge"; // gris si même pas présente
-	  }
-	}
-	}
-}
-//toString
-public String toString() {
- return this.let;
-}
+
 //MAIN-MAIN-MAIN-MAIN-MAIN-MAIN-MAIN-MAIN-MAIN-MAIN-MAIN-MAIN-MAIN-MAIN-MAIN-MAIN-MAIN
  public static void main(String[] args) {
    Lettre L1 = new Lettre("a",1); //1ere lettre du vrai mot
@@ -584,5 +475,115 @@ public String toString() {
  public void setLet(String let) {
    this.let = let;
  }
+	 private String let; //une lettre comporte une lettre...
+ private int rang;//...et un rang (véritable ou supposé)
+ public static int compteur_verif=1 ; //permet de savoir quelle lettre doit être vérifiée
+ //initialisé à 1 pour la première lettre de l'essai 1
+  //Introduction des couleurs
+ public static final String ANSI_RESET = "\u001b[36;1m";
+ public static final String ANSI_RED = "\u001b[31;1m";
+ public static final String ANSI_BLACK = "\u001b[30;1m";
+ public static final String ANSI_GREEN = "\u001b[32;1m";
+ //couleurs
+ private static String couleur1="" ;
+ private static String couleur2="" ;
+ private static String couleur3="";
+ private static String couleur4="";
+ private static String couleur5="";
+ //constructeurs
+public Lettre(String let, int rang){
+ this.setLet(let);
+ this.setRang(rang);
+}
+public Lettre(char let, int rang) {
+ this.setLet(Character.toString(let));;
+   this.setRang(rang);
+ }
+//Fonction de construction du tableau
+public static Lettre[] tab(Lettre L1, Lettre L2, Lettre L3, Lettre L4, Lettre L5) {
+ Lettre[] tab = new Lettre[5];
+ tab[0]=L1;
+ tab[1]=L2;
+ tab[2]=L3;
+ tab[3]=L4;
+ tab[4]=L5;
+ return tab;	
+}//c est un tableau qui contient le vrai mot
+//Fonction estPresent - appel quelconque (Lut, vrai tab)
+public boolean estPresent(Lettre L, Lettre[] vraitab) {
+   for (int i = 0; i < vraitab.length; i++) {
+     if (vraitab[i].let.equals(L.let)) {
+       return true; //true si la valeur de la lettre existe bien
+     }
+   }
+   return false ;
+ }
+//Vérification - impression des lettres
+public void verif(Lettre L, Lettre[] tab) { //vraitab et Lut1 en argument ; appel avec la vraie lettre
+//Lettre 1
+if (compteur_verif==1) {
+ if (!L.estPresent(L, tab)) { // On voit si la lettre est présente
+   couleur1="gris"; // gris si n'est pas présente
+ }else {
+	  if (L.getLet().equals(tab[0].getLet())) { // On voit si la lettre est présente mais à la mauvaise place
+   couleur1="vert";
+	  } else {
+   couleur1="rouge"; // gris si même pas présente
+ }
+}
+}
+//Lettre 2
+if (compteur_verif==2) {
+	  if (!L.estPresent(L, tab)) { // On voit si la lettre est presente 
+	    couleur2="gris"; // gris si n'est pas présente
+	  }else {
+		  if (L.getLet().equals(tab[1].getLet())) { // On voit si la lettre est présente mais à la mauvaise place
+	    couleur2="vert";
+		  } else {
+	    couleur2="rouge"; // gris si même pas présente
+	  }
+	}
+	}
+//Lettre 3
+if (compteur_verif==3) {
+	  if (!L.estPresent(L, tab)) { // On voit si la lettre est presente
+	    couleur3="gris"; // gris si n est pas présente
+	  }else {
+		  if (L.getLet().equals(tab[2].getLet())) { // On voit si la lettre est présente mais à la mauvaise place
+	    couleur3="vert";
+		  } else {
+	    couleur3="rouge"; // gris si même pas présente
+	  }
+	}
+	}
+//Lettre 4
+if (compteur_verif==4) {
+	  if (!L.estPresent(L, tab)) { // On voit si la lettre est presente
+	    couleur4="gris"; // gris si n'est pas presente 
+	  }else {
+		  if (L.getLet().equals(tab[3].getLet())) { // On voit si la lettre est présente mais a la mauvaise place
+	    couleur4="vert";
+		  } else {
+	    couleur4="rouge"; // gris si même pas presente
+	  }
+	}
+	}
+//Lettre 5
+if (compteur_verif==5) {
+	  if (!L.estPresent(L, tab)) { // On voit si la lettre est présente
+	    couleur5="gris"; // gris si n'est pas présente
+	  }else {
+		  if (L.getLet().equals(tab[4].getLet())) { // On voit si la lettre est présente mais à la mauvaise place
+	    couleur5="vert";
+		  } else {
+	    couleur5="rouge"; // gris si même pas présente
+	  }
+	}
+	}
+}
+//toString
+public String toString() {
+ return this.let;
+}
 }
 
